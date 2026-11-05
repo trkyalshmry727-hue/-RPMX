@@ -284,7 +284,7 @@ input{user-select:text;-webkit-user-select:text}
 .hmoney{height:calc(5.4*var(--s));background:rgba(12,12,14,.82);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;gap:8px;padding:0 calc(1.6*var(--s)) 0 calc(1.2*var(--s));font:800 calc(2.1*var(--s))/1 var(--fl);position:relative}
 .hmoney::after{content:"";position:absolute;left:0;bottom:0;width:40%;height:2px;background:linear-gradient(90deg,var(--red) 0 78%,var(--teal) 78%)}
 .htr{right:calc(25*var(--s))}
-#moreRow{display:none;gap:calc(.8*var(--s))}
+#moreRow{display:none;gap:calc(.8*var(--s));position:absolute;top:calc(100% + 1*var(--s));right:0;width:calc(66*var(--s));max-width:calc(100vw - 30*var(--s));flex-wrap:wrap;justify-content:flex-end}
 #moreRow.on{display:flex}
 .gauge{position:absolute;right:calc(3*var(--s));top:calc(2*var(--s));width:calc(20*var(--s));height:calc(20*var(--s))}
 .gauge canvas{width:100%;height:100%}
@@ -642,7 +642,7 @@ input,textarea,select{font-size:16px !important}   /* iPhone zooms the page into
 .gpanel em{font-style:normal}.gpanel .warn{border-color:#e2384d;background:rgba(120,10,20,.75);animation:blinkw .7s infinite}
 @keyframes blinkw{50%{opacity:.45}}
 #gFuel i{display:inline-block;width:calc(6*var(--s));height:calc(1*var(--s));background:#333}#gFuel b{display:block;height:100%;background:#37e07a}
-#bEng{position:absolute;right:calc(23*var(--s));top:calc(3*var(--s));width:auto!important;padding:0 calc(1.2*var(--s));gap:4px;display:flex;align-items:center;font:700 calc(1.6*var(--s))/1 var(--fa)}
+#bEng{width:auto!important;padding:0 calc(1.2*var(--s));gap:4px;display:flex;align-items:center;font:700 calc(1.6*var(--s))/1 var(--fa)}
 #bEng.off{background:#7a0c12!important;border-color:#e2384d!important}#bEng.on2{background:#0f4f3a!important}#bEng svg{width:calc(2.4*var(--s))}
 #hud #bClutch{display:none;right:calc(36*var(--s));bottom:calc(4*var(--s));width:calc(11*var(--s));height:calc(15*var(--s))}
 #hud.clutch #bClutch{display:flex}
@@ -675,6 +675,40 @@ input,textarea,select{font-size:16px !important}   /* iPhone zooms the page into
 .modec{padding:calc(1.4*var(--s));min-height:calc(30*var(--s));display:flex;flex-direction:column;gap:calc(.6*var(--s));cursor:pointer}.modec .mno{position:static;font-size:calc(2.6*var(--s));color:var(--y)}
 .mnm2{font:900 calc(2.6*var(--s))/1.2 var(--fa)}.modec p{font:600 calc(1.5*var(--s))/1.4 var(--fa);color:#ccc;margin:0;flex:1}
 .lrow.bad{border-color:#e2384d}
+/* phase-2 systems */
+#airBtn{display:none;position:absolute;left:50%;bottom:calc(25*var(--s));transform:translateX(-50%);pointer-events:auto;font-size:calc(2*var(--s));padding:calc(1.1*var(--s)) calc(2.4*var(--s))}
+#airBtn.on{display:inline-flex}
+.hbtn .lbl2{font:800 calc(1.5*var(--s))/1 var(--fa)}
+#perfBox{position:absolute;top:calc(12.8*var(--s));left:calc(1.4*var(--s));display:flex;gap:calc(.6*var(--s));pointer-events:none;font:700 calc(1.45*var(--s))/1 var(--fa);color:#fff}
+#perfBox>span{background:rgba(10,10,12,.7);padding:calc(.5*var(--s)) calc(.8*var(--s));display:flex;align-items:center;gap:4px}
+#perfBox .m{background:var(--teal);color:#032}
+#perfBox .bst{position:relative;min-width:calc(12*var(--s));overflow:hidden}
+#perfBox .bst i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#2fd6b8,#ffb000,#ff3b30);opacity:.75}
+#perfBox .bst em{position:relative;font-style:normal}
+#hud.walking #perfBox{display:none}
+#parkBox{display:none;position:absolute;top:calc(13*var(--s));left:50%;transform:translateX(-50%);background:#1d5fbf;color:#fff;font:800 calc(1.8*var(--s))/1 var(--fa);padding:calc(.7*var(--s)) calc(1.4*var(--s))}
+#parkBox.on{display:block}
+#sensBox{display:none;position:absolute;bottom:calc(24*var(--s));left:50%;transform:translateX(-50%);background:rgba(10,10,12,.8);color:#fff;font:800 calc(1.6*var(--s))/1 var(--fa);padding:calc(.7*var(--s)) calc(1.2*var(--s));gap:calc(.8*var(--s));align-items:center}
+#sensBox.on{display:flex}
+#sensBox em{font-style:normal}
+#sensBox .sb{letter-spacing:2px}#sensBox .l0{color:#2fd6b8}#sensBox .l1{color:#ffd000}#sensBox .l2{color:#ff8a1e}#sensBox .l3{color:#ff3b30}
+#rearOv{display:none;position:absolute;inset:0;pointer-events:none}
+#rearOv.on{display:block;background:
+ linear-gradient(to top right,transparent calc(50% - 2px),#ffd000 calc(50% - 2px),#ffd000 calc(50% + 1px),transparent calc(50% + 1px)) 22% 100%/14% 46% no-repeat,
+ linear-gradient(to top left,transparent calc(50% - 2px),#ffd000 calc(50% - 2px),#ffd000 calc(50% + 1px),transparent calc(50% + 1px)) 78% 100%/14% 46% no-repeat}
+#rearOv.on::after{content:'كاميرا خلفية';position:absolute;top:calc(8*var(--s));left:50%;transform:translateX(-50%);font:800 calc(1.6*var(--s))/1 var(--fa);color:#ffd000;background:rgba(0,0,0,.5);padding:4px 10px}
+#sidePanel .opt i{display:inline-flex;min-width:1.6em;justify-content:center;margin:0 3px;padding:2px 6px;background:rgba(255,255,255,.14);font-style:normal;cursor:pointer}
+#sidePanel .opt.warn{color:#ff8a1e}#sidePanel .opt.dim{opacity:.5}#sidePanel .opt.sel{background:var(--teal);color:#032}
+#sidePanel small{opacity:.7}
+#walkUI #bLock,#walkUI #bRemote{position:absolute;pointer-events:auto}
+#walkUI #bLock{right:calc(35*var(--s));bottom:calc(5*var(--s));padding:8px 14px}
+#walkUI #bRemote{right:calc(35*var(--s));bottom:calc(12*var(--s));padding:8px 14px}
+
+#sidePanel[data-k=plate],#sidePanel[data-k=air],#sidePanel[data-k=mech],#sidePanel[data-k=drv]{grid-template-columns:1fr;min-width:calc(34*var(--s));font-size:calc(1.6*var(--s))}
+
+#moreRow .hbtn{width:calc(7.6*var(--s));min-width:0;height:calc(7*var(--s));padding:0 2px;gap:calc(.5*var(--s))}
+#moreRow .hbtn .bl{font:700 calc(1.3*var(--s))/1 var(--fa);white-space:nowrap}
+#moreRow .hbtn.on .bl{color:#111}
 </style>
 </head>
 <body>
@@ -743,6 +777,7 @@ input,textarea,select{font-size:16px !important}   /* iPhone zooms the page into
     <button class="btn y" style="width:100%" id="aSubmit"></button>
     <div class="orl" data-t="or"></div>
     <button class="btn o" style="width:100%;font-size:calc(2.2*var(--s));font-family:var(--fl)" id="gBtn"><span data-t="google"></span><svg viewBox="0 0 24 24" width="22" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></button>
+    <button class="btn o" style="width:100%;margin-top:calc(1*var(--s));font-size:calc(2.2*var(--s));font-family:var(--fl)" id="appleBtn"><span data-t="apple"></span><svg viewBox="0 0 24 24" width="20" fill="#fff"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8C7 7.2 5.6 8.1 4.8 9.5c-1.6 2.8-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.8 2.3s1.6-.7 3-.7 1.8.7 3 .7 2-1.1 2.7-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.4-.9-2.4-3.5zM14.2 5.6c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z"/></svg></button>
     <button class="btn o" style="width:100%;margin-top:calc(1*var(--s))" id="guestBtn"><span data-t="guest"></span><svg viewBox="0 0 24 24" width="20" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></button>
     <div style="text-align:center;margin-top:calc(1.2*var(--s));font:600 calc(2*var(--s))/1 var(--fa)"><span id="authSwitchQ"></span> <button class="link" style="font-size:calc(2*var(--s))" id="authSwitch"></button></div>
     <div class="brk"></div>
@@ -804,21 +839,22 @@ input,textarea,select{font-size:16px !important}   /* iPhone zooms the page into
   <div id="evinfo"></div>
   <div class="htop htr">
     <div id="moreRow">
-      <div class="hbtn" id="mHaz" title="hazard"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 3l10 17H2z"/><path d="M12 8.5l5 8.5H7z"/></svg></div>
-      <div class="hbtn" id="mSigL"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 12l8-7v4h10v6H11v4z"/></svg></div>
-      <div class="hbtn" id="mSigR"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21 12l-8-7v4H3v6h10v4z"/></svg></div>
-      <div class="hbtn" id="mLights"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 6c5 0 8 2.5 8 6s-3 6-8 6c-1.5 0-2-2.7-2-6s.5-6 2-6z"/><path d="M8 8H2M8 12H2M8 16H2"/></svg></div>
-      <div class="hbtn" id="mHorn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 10v4h4l6 4V6L7 10z"/><path d="M16 9a4 4 0 010 6M19 6a8 8 0 010 12"/></svg></div>
-      <div class="hbtn" id="mGear" style="font:800 calc(2*var(--s))/1 var(--fl)">A/M</div>
-      <div class="hbtn" id="mExit" title="نزول"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 22l4-7 4 7M7 12h10"/></svg></div>
-      <div class="hbtn" id="mDoors" title="الأبواب"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 21V4h11l5 5v12zM15 4v5h5M14 14h2"/></svg></div>
-      <div class="hbtn" id="mHydro" title="هيدروليك"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M7 3v8M17 3v8M4 14h16v4H4zM7 18v3M17 18v3M5 6l2-3 2 3M15 6l2-3 2 3"/></svg></div>
-      <div class="hbtn" id="mJobs" title="وظائف"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3M3 12h18"/></svg></div>
-      <div class="hbtn" id="mTire" title="غيّر الكفر"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
-      <div class="hbtn" id="mCtrl" title="دركسون / أسهم"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M3 12h6.5M14.5 12H21M12 14.5V21"/></svg></div>
-      <div class="hbtn" id="mWx" title="الطقس"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M7 17a5 5 0 110-10 6 6 0 0111 2 4 4 0 010 8z"/><path d="M8 20l-1 2M12 20l-1 2M16 20l-1 2"/></svg></div>
-      <div class="hbtn" id="mReset"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4v6h6"/><path d="M20 12a8 8 0 10-3 6.3"/><path d="M4 10a8 8 0 0114-4"/></svg></div>
+      <div class="hbtn" id="mHaz" title="hazard"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 3l10 17H2z"/><path d="M12 8.5l5 8.5H7z"/></svg><span class="bl">فلشر</span></div>
+      <div class="hbtn" id="mSigL"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 12l8-7v4h10v6H11v4z"/></svg><span class="bl">يسار</span></div>
+      <div class="hbtn" id="mSigR"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21 12l-8-7v4H3v6h10v4z"/></svg><span class="bl">يمين</span></div>
+      <div class="hbtn" id="mLights"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 6c5 0 8 2.5 8 6s-3 6-8 6c-1.5 0-2-2.7-2-6s.5-6 2-6z"/><path d="M8 8H2M8 12H2M8 16H2"/></svg><span class="bl">الأنوار</span></div>
+      <div class="hbtn" id="mHorn"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 10v4h4l6 4V6L7 10z"/><path d="M16 9a4 4 0 010 6M19 6a8 8 0 010 12"/></svg><span class="bl">بوري</span></div>
+      <div class="hbtn" id="mGear"><b style="font:800 calc(2*var(--s))/1 var(--fl)">A/M</b><span class="bl">القير</span></div>
+      <div class="hbtn" id="mExit" title="نزول"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 22l4-7 4 7M7 12h10"/></svg><span class="bl">نزول</span></div>
+      <div class="hbtn" id="mDoors" title="الأبواب"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 21V4h11l5 5v12zM15 4v5h5M14 14h2"/></svg><span class="bl">الأبواب</span></div>
+      <div class="hbtn" id="mHydro" title="هيدروليك"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M7 3v8M17 3v8M4 14h16v4H4zM7 18v3M17 18v3M5 6l2-3 2 3M15 6l2-3 2 3"/></svg><span class="bl">هيدروليك</span></div>
+      <div class="hbtn" id="mJobs" title="وظائف"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3M3 12h18"/></svg><span class="bl">وظائف</span></div>
+      <div class="hbtn" id="mTire" title="غيّر الكفر"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg><span class="bl">الكفر</span></div>
+      <div class="hbtn" id="mCtrl" title="دركسون / أسهم"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M3 12h6.5M14.5 12H21M12 14.5V21"/></svg><span class="bl">التحكم</span></div>
+      <div class="hbtn" id="mWx" title="الطقس"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M7 17a5 5 0 110-10 6 6 0 0111 2 4 4 0 010 8z"/><path d="M8 20l-1 2M12 20l-1 2M16 20l-1 2"/></svg><span class="bl">الطقس</span></div>
+      <div class="hbtn" id="mReset"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4v6h6"/><path d="M20 12a8 8 0 10-3 6.3"/><path d="M4 10a8 8 0 0114-4"/></svg><span class="bl">تعديل</span></div>
     </div>
+    <div class="hbtn" id="bEng"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v8"/><path d="M6.3 7.3a8 8 0 1011.4 0"/></svg><span>تشغيل</span></div>
     <div class="hbtn" id="hCam"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span data-t="camera"></span></div>
     <div class="hbtn" id="hMore"><svg viewBox="0 0 24 24" fill="#fff"><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg><span data-t="more"></span></div>
   </div>
@@ -829,9 +865,8 @@ input,textarea,select{font-size:16px !important}   /* iPhone zooms the page into
   <div id="pops"></div>
   <div id="camDrag"></div>
   <div class="gpanel" id="gPanel"><span id="gFuel">⛽<i><b></b></i></span><span id="gTemp">🌡<em>90°</em></span><span id="gOil">🛢<em>100%</em></span><span id="gBat">🔋<em>100%</em></span><span id="gTire">◎<em></em></span></div>
-  <div class="hbtn" id="bEng"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v8"/><path d="M6.3 7.3a8 8 0 1011.4 0"/></svg><span>تشغيل</span></div>
   <div class="hb" id="bClutch"><span class="lab">كلتش</span></div>
-  <div id="actBtn" class="btn y"></div>
+  <div id="airBtn" class="btn o">هواء الكفرات</div><div id="actBtn" class="btn y"></div>
   <div id="jobBox"><b id="jobT"></b><span id="jobD"></span><em id="jobM"></em></div>
   <div id="navArr"><svg viewBox="0 0 24 24"><path d="M12 2l7 18-7-4-7 4z" fill="#f3e40c" stroke="#111" stroke-width="1"/></svg><small id="navD"></small></div>
   <div id="wheelC"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="9"/><circle cx="50" cy="50" r="12" fill="rgba(20,20,24,.9)" stroke="#fff" stroke-width="2"/><path d="M8 50h30M62 50h30M50 62v30" stroke="rgba(255,255,255,.85)" stroke-width="8"/><rect x="45" y="4" width="10" height="9" fill="#f3e40c"/></svg></div>
@@ -9084,9 +9119,9 @@ ar: {
   close: 'إغلاق', login: 'تسجيل الدخول', signup: 'إنشاء حساب', welcomeBack: 'مرحبًا بعودتك', loginSub: 'سجّل الدخول لتكمل من حيث توقفت.',
   createTitle: 'حساب جديد', createSub: 'أنشئ حسابك وابدأ مشوارك في الهجولة.',
   email: 'البريد الإلكتروني', password: 'كلمة المرور', passPh: 'كلمة مرورك', stay: 'ابقَ مسجّل الدخول', forgot: 'نسيت كلمة المرور؟', or: 'أو',
-  google: 'المتابعة عبر GOOGLE', guest: 'العب كزائر', newHere: 'جديد على الحلبة؟', makeAcc: 'أنشئ حسابًا', haveAcc: 'عندك حساب؟',
+  google: 'المتابعة عبر قوقل', apple: 'المتابعة عبر آبل', appleSoon: 'الدخول بحساب آبل يحتاج تفعيل من حساب مطوّر آبل — قريباً', guest: 'العب كزائر', newHere: 'جديد على الحلبة؟', makeAcc: 'أنشئ حسابًا', haveAcc: 'عندك حساب؟',
   errEmail: 'اكتب بريد إلكتروني صحيح', errPass: 'كلمة المرور لازم 6 أحرف أو أكثر', errNoAcc: 'ما لقينا حساب بهذا البريد على هذا الجهاز', errWrong: 'كلمة المرور غلط', errExists: 'فيه حساب بهذا البريد، سجّل دخول',
-  forgotMsg: 'الحسابات محفوظة على جهازك. إذا نسيت كلمة المرور أنشئ حساب جديد أو العب كزائر.', googleSoon: 'تسجيل الدخول بقوقل يحتاج سيرفر، بيتفعّل قريباً',
+  forgotMsg: 'الحسابات محفوظة على جهازك. إذا نسيت كلمة المرور أنشئ حساب جديد أو العب كزائر.', googleSoon: 'الدخول بقوقل يتفعّل أول ما ينحط معرّف قوقل للعبة — قريباً',
   loading: 'جارِ التحميل', tip: 'نصيحة', prepDriver: 'لنعد سائقك',
   tips: ['اضغط فرامل اليد وأنت داخل اللفّة عشان تكسر الكفرات الخلفية وتبدأ الهجولة.', 'خلّك على البنزين وانت مهجّل، لو فكيته السيارة بتعدل.', 'عاكس الدركسون عكس اتجاه الدوران عشان تمسك الزاوية.', 'في القير اليدوي تقدر تثبّت على الأول أو الثاني وتدوّر دونات بدون ما يغيّر لحاله.', 'الرمل يزلّق أكثر من الإسفلت ويطلع غبار.', 'من «المزيد» تشغّل الفلشر والأنوار والبوري.'],
   driverFile: 'ملف السائق', chooseName: 'اختر اسمك', nameSub: 'هكذا سيراك السائقون الآخرون. يمكنك تغييره لاحقًا من ملفك الشخصي.', driverName: 'اسم السائق',
@@ -9180,7 +9215,7 @@ en: {
   close: 'Close', login: 'Log in', signup: 'Sign up', welcomeBack: 'Welcome back', loginSub: 'Log in to pick up where you left off.',
   createTitle: 'New account', createSub: 'Create your account and start sliding.',
   email: 'Email', password: 'Password', passPh: 'Your password', stay: 'Stay logged in', forgot: 'Forgot password?', or: 'or',
-  google: 'CONTINUE WITH GOOGLE', guest: 'Play as guest', newHere: 'New to the track?', makeAcc: 'Create an account', haveAcc: 'Have an account?',
+  google: 'CONTINUE WITH GOOGLE', apple: 'CONTINUE WITH APPLE', appleSoon: 'Apple sign-in needs an Apple developer setup — coming soon', guest: 'Play as guest', newHere: 'New to the track?', makeAcc: 'Create an account', haveAcc: 'Have an account?',
   errEmail: 'Enter a valid email', errPass: 'Password must be 6+ characters', errNoAcc: 'No account with this email on this device', errWrong: 'Wrong password', errExists: 'Account exists — log in',
   forgotMsg: 'Accounts are stored on this device. If you forgot your password, create a new account or play as guest.', googleSoon: 'Google sign-in needs a server — coming soon',
   loading: 'Loading', tip: 'Tip', prepDriver: 'Preparing your driver',
@@ -9273,6 +9308,10 @@ function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
 
 // ===== persistent save (device only) =====
 const SAVE_KEY = 'hajwala_rpm_v1';
+// Google sign-in: paste the web client ID from Google Cloud here (empty = button shows 'coming soon')
+const GOOGLE_ID = '';
+// Sign in with Apple: the Services ID made in the Apple developer account, and the game's web address as the return address
+const APPLE_ID = '', APPLE_REDIRECT = '';
 const DEFAULT_SAVE = () => ({
   setupDone: false, lang: null, gfx: null, adsConsent: null,
   account: null, accounts: {}, stayLogged: true,
@@ -9592,6 +9631,7 @@ class Vehicle {
     const lim = s.limiter + (this.limiterAdd || 0);
     if (rpm >= lim) this.limiterCut = true; else if (rpm < lim - 250) this.limiterCut = false;
     if (this.nitroOn) tq *= 1.35 + 0.1 * this.nitroCap;
+    tq *= this.modeP || 1;   // drive mode (sport / comfort / eco)
     const drag = 18 + 0.032 * this.we + 0.00012 * this.we * this.we;
     if (this.limiterCut) return -drag;
     // idle governor
@@ -9671,7 +9711,7 @@ class Vehicle {
       const surf = world ? world.surfaceAt(gx, gz) : 'asphalt';
       w.surf = surf; w.gx = gx; w.gz = gz;
       const tw = this.st ? this.st.tires[W.indexOf(w)] : null;
-      const mu = (w.front ? this.muF : this.muR) * (surf === 'sand' ? 0.66 : surf === 'dirt' ? 0.78 : 1.0) * (tw ? (tw.flat ? 0.45 : 1 - tw.wear * 0.25) : 1) * (surf === 'asphalt' && world && world.wet ? 1 - world.wet * 0.24 : 1);
+      const mu = (w.front ? this.muF : this.muR) * (surf === 'sand' ? 0.66 : surf === 'dirt' ? 0.78 : 1.0) * (tw ? (tw.flat ? 0.45 : (1 - tw.wear * 0.25) * (tw.psi !== undefined ? clamp(1 - Math.abs(tw.psi - 32) * 0.012, 0.72, 1.02) : 1)) : 1) * (surf === 'asphalt' && world && world.wet ? 1 - world.wet * 0.24 : 1);
       const rr = surf === 'sand' ? 0.055 : 0.013;
       // relaxed slip (stable at low speed)
       const vref = Math.max(Math.abs(uLong), 1.2);
@@ -9891,9 +9931,15 @@ class Vehicle {
       st.bat = Math.min(100, st.bat + dt * 0.05);
     } else if (this.lightsOn) st.bat = Math.max(0, st.bat - dt * 0.02);
     // engine coolant: heats with power, cools with airflow (and the fan); low oil runs hot
-    const heat = this.engineOn ? 0.9 + P * 0.028 * (st.oil < 25 ? 1.8 : 1) : 0;
-    const cool = (st.eT - 25) * (0.0045 + spd * 0.0009) + (this.engineOn && st.eT > 95 ? (st.eT - 95) * 0.06 : 0);
-    st.eT = clamp(st.eT + dt * (heat - cool), 15, 140);
+    // cold start -> warms up to ~90° (thermostat). Normal driving stays near 90; it only overheats when
+    // revving hard while the car barely moves (handbrake / stuck), or when the oil is low
+    const rf = clamp(rpm / s.redline, 0, 1), air = clamp(spd / 7, 0, 1), lowOil = st.oil < 25 ? 1.8 : 1;
+    if (this.engineOn) {
+      if (st.eT < 90) st.eT = Math.min(90, st.eT + dt * (0.55 + rf * 2.4));
+      else { const load = Math.max(0, thr) * Math.pow(rf, 1.4) * 1.9 * (1 - air) * lowOil + (lowOil > 1 ? 0.25 : 0);
+        st.eT += dt * (load - (st.eT - 90) * (0.05 + air * 0.08)); }
+    } else st.eT -= dt * (st.eT - 30) * 0.012;
+    st.eT = clamp(st.eT, 15, 140);
     // gearbox: heats with converter / clutch slip under load
     const slipHeat = Math.abs(this.tcSlip || 0) * Math.max(0, thr) * 6 + (this.manual && inp && inp.clutch > 0.2 && thr > 0.3 ? 4 : 0);
     st.gT = clamp(st.gT + dt * (slipHeat + Math.abs(Te) * 0.004 - (st.gT - 25) * (0.006 + spd * 0.0006)), 15, 150);
@@ -10501,6 +10547,9 @@ const CAR_PAINT = {
   hilux97: { mats: ['iSicehilux_body'], c: [1, 1, 1], m: .69, r: .08 },
   tahoe15: { mats: ['etk800', 'rxx_tahoe_paint', 'roamer'], c: [.67, .62, .52], m: .9, r: .33 },
 };
+// per-car repairs for mods with odd settings
+const MAT_FIX = { accent: { lowMetal: true } };            // interior was set as metal -> looked like chrome
+const PART_FIX = { gmc: { trunk: [0, 0, -0.38] } };          // tailgate sat inside the bed
 class CarView {
   constructor(gltf, spec, cfg, opts) {
     this.spec = spec; this.cfg = cfg;
@@ -10520,6 +10569,8 @@ class CarView {
         const out = ms.map(m => {
           if (!this.mats[m.name]) { const c = m.clone(); this.mats[m.name] = c; c.envMapIntensity = 1;
             const PF = CAR_PAINT[spec.id]; if (PF && PF.mats.includes(c.name)) { c.map = null; c.metalnessMap = null; c.roughnessMap = null; c.color.setRGB(PF.c[0], PF.c[1], PF.c[2], THREE.LinearSRGBColorSpace); c.metalness = PF.m; c.roughness = PF.r; c.userData = Object.assign({}, c.userData, { paint: true }); c.needsUpdate = true; }
+            const MF = MAT_FIX[spec.id]; if (MF && MF.lowMetal && !(c.userData && c.userData.paint) && !/chrome|mirror|glass|tire|rim/i.test(c.name)) { c.metalness = Math.min(c.metalness, c.metalnessMap ? .25 : .08); c.roughness = Math.max(c.roughness, .45); }
+            if (/screen|display/i.test(c.name)) c.side = THREE.DoubleSide;
             if (c.userData && c.userData.paint) { this.paintMats.push(c); c.userData.orig = c.color.clone(); c.side = THREE.DoubleSide; }
             if (/glass|windshield|window/i.test(c.name) && c.transparent) this.glassMats.push(c);
           }
@@ -10538,6 +10589,7 @@ class CarView {
       else if (n.name.startsWith('part_')) { const k = n.name.slice(5), info = (gltf.scene.userData.parts || {})[k]; if (info) { const I = Object.assign({}, info);
         // pickup tailgate (thin plate) drops down around its bottom edge
         if (k === 'trunk' && I.size && I.size[2] < .16 && I.size[1] < .8) { I.axis = 'x'; I.sign = -1; I.max = 1.5; I.pivot = new THREE.Vector3(0, -I.size[1], 0); }
+        const PFX = (PART_FIX[spec.id] || {})[k]; if (PFX) { n.position.x += PFX[0]; n.position.y += PFX[1]; n.position.z += PFX[2]; }
         this.parts[k] = { node: n, info: I, cur: 0, target: 0, base: n.position.clone() }; } }
     }
     for (const k of ['FL', 'FR', 'RL', 'RR']) { const w = this.geom.wheels[k]; ys.push(w.center[1] - w.radius); }
@@ -10560,7 +10612,11 @@ class CarView {
         for (const m of ms) { m.side = THREE.DoubleSide; if (/tire|tyre|tread|rubber/i.test(m.name) && m.metalness > 0.3) { m.metalness = 0.08; m.roughness = Math.max(m.roughness, 0.78); } } });
     }
     if (this.steerNode && this.geom.steer) {
-      const ax = this.geom.steer.axis; this.steerAxis = new THREE.Vector3(ax[0], ax[1], ax[2]).normalize();
+      let ax = this.geom.steer.axis;
+      if (Math.abs(ax[1]) > .75) {   // the mod's steering wheel lies flat like a bus wheel: stand it up on a normal column
+        const n = new THREE.Vector3(0, 1, 0), want = new THREE.Vector3(0, .52, -.85).normalize();
+        this.steerNode.quaternion.premultiply(new THREE.Quaternion().setFromUnitVectors(n, want)); ax = want.toArray(); }
+      this.steerAxis = new THREE.Vector3(ax[0], ax[1], ax[2]).normalize();
       this.steerQ0 = this.steerNode.quaternion.clone();
     }
     // bounding box (for collision)
@@ -10598,6 +10654,8 @@ class CarView {
         const pl = new THREE.PointLight(0xff8a10, 0, 9, 1.6); pl.position.set(sgn * (this.box.hw + .25), .55, (this.box.f + this.box.r) / 2); this.root.add(pl); this.fl.push({ side, pl }); }
       this.brakeL = new THREE.PointLight(0xff1a10, 0, 7, 1.8); this.brakeL.position.set(0, .8, this.box.r - .6); this.root.add(this.brakeL);
     }
+    this.frontSig = this.makeFrontSig();
+    this.makeNativeScreen();
     this.extras = new THREE.Group(); this.bodyHolder.add(this.extras);
     this.applyLook();
   }
@@ -10657,7 +10715,7 @@ class CarView {
     }
     this.applyRims(c);
     for (const m of this.glassMats) { if (m.userData.op0 === undefined) { m.userData.op0 = m.opacity; m.userData.col0 = m.color.clone(); }
-      const t = c.tint || 0; m.opacity = Math.min(0.95, m.userData.op0 + t * 0.3); m.color.copy(m.userData.col0).multiplyScalar(1 - t * 0.4); }
+      const t = c.tint || 0; m.opacity = Math.min(0.95, m.userData.op0 + t * 0.3); m.color.copy(m.userData.col0).multiplyScalar(1 - t * 0.4); } this._inside = undefined;
     this.applyDecals(c.decals || []);
     this.applyExtras(c);
   }
@@ -10707,12 +10765,28 @@ class CarView {
     const h = rc.intersectObjects(ms, false)[0]; this._deck = h ? h.point.applyMatrix4(inv).y : this.box.h * .75; return this._deck;
   }
   drawScreen(veh) {
-    if (!this.scrCv || !veh) return; this._sct = (this._sct || 0) + 1; if (this._sct % 8) return;
+    if (!veh) return;
+    if (this.natCv) { this._nct = (this._nct || 0) + 1; if (this._nct % 10 === 1) this.drawNative(veh); }
+    if (!this.scrCv) return; this._sct = (this._sct || 0) + 1; if (this._sct % 8) return;
     const x = this.scrCv.getContext('2d'), st = veh.st || {}; x.fillStyle = '#05070a'; x.fillRect(0, 0, 256, 128);
     x.fillStyle = '#2fd6b8'; x.font = '800 54px Saira Semi Condensed, sans-serif'; x.textAlign = 'left'; x.fillText(Math.round(veh.speed * 3.6), 12, 62);
     x.font = '700 16px sans-serif'; x.fillStyle = '#9aa'; x.fillText('km/h', 14, 82); x.fillStyle = '#f3e40c'; x.font = '800 34px sans-serif'; x.fillText(veh.gearLabel, 150, 56);
     const r = Math.min(1, veh.rpm / veh.spec.limiter); x.fillStyle = '#222'; x.fillRect(12, 96, 232, 10); x.fillStyle = r > .88 ? '#e2384d' : '#2fd6b8'; x.fillRect(12, 96, 232 * r, 10);
     x.fillStyle = '#ddd'; x.font = '600 14px sans-serif'; x.fillText('⛽ ' + Math.round((st.fuel || 0)) + 'L  🌡 ' + Math.round(st.eT || 0) + '°', 130, 84); this.scrTex.needsUpdate = true;
+  }
+  drawNative(veh) {
+    const W = 512, H = 300, x = this.natCv.getContext('2d'), st = veh.st || {}, on = veh.engineOn !== false;
+    x.fillStyle = on ? '#0a0f16' : '#020203'; x.fillRect(0, 0, W, H); if (!on) { this.natTex.needsUpdate = true; return; }
+    const g = x.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#0f1d2c'); g.addColorStop(1, '#070b10'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+    x.fillStyle = '#16283a'; x.fillRect(0, 0, W, 42); const d = new Date();
+    x.fillStyle = '#e8eef5'; x.font = '700 26px sans-serif'; x.textAlign = 'left'; x.fillText(String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'), 16, 31);
+    x.textAlign = 'right'; x.fillStyle = '#9fb3c8'; x.font = '600 20px sans-serif'; x.fillText(Math.round(st.eT || 0) + '°  ⛽ ' + Math.round(st.fuel || 0) + 'L', W - 16, 30);
+    x.textAlign = 'center'; x.fillStyle = '#ffffff'; x.font = '800 112px sans-serif'; x.fillText(Math.round(veh.speed * 3.6), W * .36, 175);
+    x.fillStyle = '#7f93a8'; x.font = '600 24px sans-serif'; x.fillText('km/h', W * .36, 210);
+    x.fillStyle = '#2fd6b8'; x.font = '800 64px sans-serif'; x.fillText(veh.gearLabel || 'N', W * .8, 160);
+    const r = Math.min(1, veh.rpm / (veh.spec.limiter || 7000)); x.fillStyle = '#1c2a38'; x.fillRect(30, 240, W - 60, 16); x.fillStyle = r > .88 ? '#e2384d' : '#2fd6b8'; x.fillRect(30, 240, (W - 60) * r, 16);
+    x.fillStyle = '#9fb3c8'; x.font = '600 18px sans-serif'; x.fillText(Math.round(veh.rpm) + ' rpm', W / 2, 284);
+    this.natTex.needsUpdate = true;
   }
   // ---------- rims: colour of the original rims, or a generated rim design ----------
   applyRims(c) {
@@ -10803,6 +10877,40 @@ class CarView {
     m.lookAt(m.position.clone().add(n));
     this.bodyHolder.add(m); this.sticker = m;
   }
+  // seen from the driver's seat: clear glass without the mirror-like reflections, so the road is easy to see
+  setInside(on) { const prev = this._inside; if (prev === on) return; this._inside = on; if (!on && prev !== true) return;
+    for (const m of this.glassMats) { const u = m.userData; if (u.ei0 === undefined) u.ei0 = m.envMapIntensity;
+      if (on) { u.opIn = m.opacity; m.opacity = Math.min(m.opacity, .1); m.envMapIntensity = .06; } else { if (u.opIn !== undefined) m.opacity = u.opIn; m.envMapIntensity = u.ei0; } } }
+  // the car's own centre screen (when the mod has one): live display instead of a blank white panel
+  makeNativeScreen() {
+    const m = Object.values(this.mats).find(x => /(^|_)screen$/i.test(x.name) && !/gauge|off/i.test(x.name)); if (!m) return;
+    let a = [1e9, 1e9, -1e9, -1e9]; this.bodyHolder.traverse(o => { if (!o.isMesh || o.material !== m || !o.geometry.attributes.uv) return; const uv = o.geometry.attributes.uv;
+      for (let i = 0; i < uv.count; i++) { a[0] = Math.min(a[0], uv.getX(i)); a[1] = Math.min(a[1], uv.getY(i)); a[2] = Math.max(a[2], uv.getX(i)); a[3] = Math.max(a[3], uv.getY(i)); } });
+    if (!(a[2] > a[0] && a[3] > a[1])) return;
+    const cv = document.createElement('canvas'); cv.width = 512; cv.height = 300; const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace; tex.flipY = false;
+    tex.repeat.set(1 / (a[2] - a[0]), 1 / (a[3] - a[1])); tex.offset.set(-a[0] / (a[2] - a[0]), -a[1] / (a[3] - a[1]));
+    m.map = tex; m.emissiveMap = tex; m.emissive.set(0xffffff); m.emissiveIntensity = .85; m.color.set(0xffffff); m.alphaTest = 0; m.transparent = false; m.needsUpdate = true;
+    m.userData.baseEm = m.emissive.clone(); m.userData.baseEI = m.emissiveIntensity;
+    this.natCv = cv; this.natTex = tex;
+    for (const o of Object.values(this.mats)) if (o.name === 'screen_off') o.visible = false;   // dark placeholder sat on top of the screen
+  }
+  // amber glow at the front corners so the indicators / hazards are clearly seen flashing at the front too
+  makeFrontSig() {
+    this.root.updateMatrixWorld(true); const inv = new THREE.Matrix4().copy(this.bodyHolder.matrixWorld).invert(), t = new THREE.Box3(), B = this.box;
+    const boxes = mats => { const r = []; this.bodyHolder.traverse(o => { if (!o.isMesh) return; const ms = Array.isArray(o.material) ? o.material : [o.material]; if (!ms.some(m => mats.includes(m))) return;
+      o.geometry.computeBoundingBox(); t.copy(o.geometry.boundingBox).applyMatrix4(o.matrixWorld).applyMatrix4(inv); if ((t.min.z + t.max.z) / 2 > (B.f + B.r) / 2 + .4) r.push(t.clone()); }); return r; };
+    const pick = (list, sgn) => { let best = null;
+      for (const b of list) { const x = sgn > 0 ? b.max.x : b.min.x; if (x * sgn < .2) continue; const cx = (b.min.x + b.max.x) / 2, spans = b.min.x < -.1 && b.max.x > .1;
+        const p = new THREE.Vector3(spans ? x - sgn * .13 : cx, (b.min.y + b.max.y) / 2, b.max.z + .03); if (!best || p.x * sgn > best.x * sgn) best = p; } return best; };
+    const head = boxes(this.light.head), cv = document.createElement('canvas'); cv.width = cv.height = 64; const g = cv.getContext('2d'), gr = g.createRadialGradient(32, 32, 2, 32, 32, 32);
+    gr.addColorStop(0, 'rgba(255,240,200,1)'); gr.addColorStop(.25, 'rgba(255,150,30,.9)'); gr.addColorStop(1, 'rgba(255,120,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+    const tex = new THREE.CanvasTexture(cv), out = {};
+    for (const [side, sgn, mats] of [['L', 1, this.light.sigL], ['R', -1, this.light.sigR]]) {
+      const p = pick(boxes(mats), sgn) || pick(head, sgn) || new THREE.Vector3(sgn * B.hw * .78, .75 - this.groundOff, B.f + .02);
+      const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, color: 0xffa040, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, toneMapped: false }));
+      sp.scale.set(.34, .34, 1); sp.position.copy(p); sp.visible = false; sp.renderOrder = 3; this.bodyHolder.add(sp); out[side] = sp; }
+    return out;
+  }
   setEm(list, on, color, inten) {
     for (const m of list) {
       if (m.userData.glow) { m.visible = on; m.opacity = on ? 1 : 0; continue; } if (on) { m.emissive.set(color); m.emissiveIntensity = inten; } else { m.emissive.copy(m.userData.baseEm); m.emissiveIntensity = m.userData.baseEI; } }
@@ -10844,6 +10952,7 @@ class CarView {
     this.setEm(this.light.head, s.lights, 0xfff4e0, 2.2);
     for (const sp of this.spots) sp.intensity = s.lights ? 120 : 0;
     this.blinkOn = (L || R) && blink;
+    if (this.frontSig) { this.frontSig.L.visible = L && blink; this.frontSig.R.visible = R && blink; }
     for (const f of this.fl) f.pl.intensity = ((f.side === 'L' ? L : R) && blink) ? 2.2 : 0;
     if (this.brakeL) this.brakeL.intensity = s.brake ? 1.6 : s.lights ? .35 : 0;
     if (this.glowMesh) { const gm = this.glowMesh.material; if (this.glowMode === 'pulse') gm.opacity = .45 + .45 * Math.sin(t * 4); else if (this.glowMode === 'rainbow') gm.color.setHSL((t * .15) % 1, 1, .55); else gm.opacity = .9; }
@@ -10963,6 +11072,7 @@ class Smoke {
       if (this.life[k] <= 0) continue;
       this.life[k] -= dt; const f = Math.max(0, this.life[k] / this.max[k]);
       this.pos[k * 3] += this.vel[k * 3] * dt; this.pos[k * 3 + 1] += this.vel[k * 3 + 1] * dt; this.pos[k * 3 + 2] += this.vel[k * 3 + 2] * dt;
+      this.vel[k * 3] += (1.3 - this.vel[k * 3]) * .5 * dt * (1 - f); this.vel[k * 3 + 2] += (.6 - this.vel[k * 3 + 2]) * .5 * dt * (1 - f); // light breeze carries old smoke
       this.vel[k * 3] *= 1 - 1.2 * dt; this.vel[k * 3 + 2] *= 1 - 1.2 * dt; this.vel[k * 3 + 1] *= 1 - .4 * dt;
       this.size[k] += this.grow[k] * dt * (0.4 + f);
       this.alpha[k] *= 1 - 0.55 * dt;
@@ -11305,6 +11415,7 @@ const SIM = {
     tap('mCtrl', () => { SAVE.settings.ctrl = SAVE.settings.ctrl === 'wheel' ? 'buttons' : 'wheel'; persist(); this.syncCtrl(); UI.toast(SAVE.settings.ctrl === 'wheel' ? 'دركسون' : 'أسهم'); });
     tap('actBtn', () => this.act && this.act.fn());
     tap('bEnter', () => this.enterCar());
+    SIM2.init(); tap('airBtn', () => SIM2.airPanel());
     // clutch pedal
     const cl = $('bClutch'); cl.addEventListener('pointerdown', e => { e.preventDefault(); I.clutch = 1; cl.classList.add('act'); try { cl.setPointerCapture(e.pointerId); } catch (_) { } });
     const clo = () => { I.clutch = 0; cl.classList.remove('act'); }; cl.addEventListener('pointerup', clo); cl.addEventListener('pointercancel', clo);
@@ -11353,6 +11464,7 @@ const SIM = {
     this.buildStations(); this.weatherInit();
     this.syncCtrl(); this.saveT = 0; this.dirtT = 0;
     if (Game.carView.applyExtras) Game.carView.applyExtras(cfg);
+    try { SIM2.start(ev); } catch (e) { console.error(e); }
   },
   engineButton() {
     const v = Game.veh; if (!v) return;
@@ -11391,6 +11503,7 @@ const SIM = {
     this.updateJob(dt);
     this.weatherUpdate(dt);
     if (this.walking) this.walkUpdate(dt);
+    try { SIM2.update(dt); } catch (e) { if (!this._e2) { this._e2 = 1; console.error(e); } }
     this.saveT += dt; if (this.saveT > 5) { this.saveT = 0; persist(); }
   },
   syncFlat() { const v = Game.veh, cv = Game.carView; if (!v || !cv || !v.st) return; ['FL', 'FR', 'RL', 'RR'].forEach((k, i) => { const w = cv.wheels[k]; if (w) w.spin.scale.set(1, v.st.tires[i].flat ? .9 : 1, v.st.tires[i].flat ? .9 : 1); }); },
@@ -11495,6 +11608,7 @@ const SIM = {
     if (this.job && this.job.stage && this.job.target && Math.hypot(v.px - this.job.target.x, v.pz - this.job.target.z) < 9 && v.speed < 2) act = { t: this.job.stage === 'pick' ? 'استلم' : 'سلّم', fn: () => this.jobStep() };
     else if (this.stations.some(near) && v.speed < 1.5) act = { t: '⛽ تعبئة بنزين', fn: () => this.pump() };
     else if (this.washes.some(near) && v.speed < 1.5) act = { t: '🫧 غسيل السيارة · CR 150', fn: () => this.wash() };
+    const ab = $('airBtn'); if (ab) ab.classList.toggle('on', this.stations.some(near) && v.speed < 1.5);
     this.act = act; const b = $('actBtn'); b.classList.toggle('on', !!act); if (act) b.textContent = act.t;
     for (const w of this.washes) for (const br of w.obj.userData.brushes) br.rotation.y += dt * (this.washing ? 14 : .4);
   },
@@ -11654,6 +11768,7 @@ const SIM = {
   },
   enterCar() {
     const v = Game.veh, cv = Game.carView; if (!this.walking) return;
+    if (SIM2.locked) { SIM2.toggleLock(); }
     if (Math.hypot(this.ped.position.x - v.px, this.ped.position.z - v.pz) > cv.box.hw + 3) return UI.toast('قرّب من السيارة', 1500);
     const side = (cv.geom.steer && cv.geom.steer.center[0] < 0) ? -1 : 1, dk = side > 0 ? 'door_FL' : 'door_FR';
     if (cv.parts[dk]) { cv.setPart(dk, true); SND.door(true); setTimeout(() => cv.setPart(dk, false), 1100); }
@@ -11715,6 +11830,223 @@ const SIM = {
   },
 };
 
+// ===== phase-2 systems: drive modes, steering feel, performance meter (boost / 0-100 / top speed), tyre pressure + air pump,
+// Saudi number plates, key lock / alarm / remote start, parking sensors + reversing camera, mobile mechanic, smart car park =====
+const PLATE_L = [['ا', 'A'], ['ب', 'B'], ['ح', 'J'], ['د', 'D'], ['ر', 'R'], ['س', 'S'], ['ص', 'X'], ['ط', 'T'], ['ع', 'E'], ['ق', 'G'], ['ك', 'K'], ['ل', 'L'], ['م', 'Z'], ['ن', 'N'], ['هـ', 'H'], ['و', 'U'], ['ى', 'V']];
+const AR_D = '٠١٢٣٤٥٦٧٨٩';
+const SIM2 = {
+  mode: 'comfort', locked: false, alarmT: 0, mech: null, park: null, t0100: null, best: {},
+  MODES: { eco: { n: 'اقتصادي', p: .82, curve: 1.6 }, comfort: { n: 'مريح', p: 1, curve: 1.15 }, sport: { n: 'رياضي', p: 1.06, curve: .72 } },
+  init() {
+    const ICO2 = {
+      mMode: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 17a8 8 0 1116 0"/><path d="M12 17l4-6"/><circle cx="12" cy="17" r="1.6" fill="#fff"/></svg>',
+      mPlate: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="1.5"/><path d="M14 7v10M5 11h5M5 14h4M16.5 11h3M16.5 14h3"/></svg>',
+      mMech: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14.5 6.5a4 4 0 00-5.2 5.2L3.5 17.5l3 3 5.8-5.8a4 4 0 005.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>',
+      mDrv: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="#111"/><circle cx="15" cy="12" r="2" fill="#111"/><circle cx="7" cy="18" r="2" fill="#111"/></svg>' };
+    const row = $('moreRow'), mk = (id, label) => { if ($(id)) return; const b = document.createElement('div'); b.className = 'hbtn'; b.id = id; b.innerHTML = (ICO2[id] || '') + `<span class="bl">${label}</span>`; row.appendChild(b); };
+    mk('mMode', 'الوضع'); mk('mPlate', 'اللوحة'); mk('mMech', 'صيانة'); mk('mDrv', 'القيادة');
+    const hud = $('hud'), add = (id, cls) => { if ($(id)) return $(id); const d = document.createElement('div'); d.id = id; d.className = cls || ''; hud.appendChild(d); return d; };
+    add('perfBox'); add('parkBox'); add('sensBox'); add('rearOv');
+    const wu = $('walkUI'); if (wu && !$('bLock')) { const b = document.createElement('div'); b.id = 'bLock'; b.className = 'hb wk'; b.textContent = 'قفل'; wu.appendChild(b);
+      const r = document.createElement('div'); r.id = 'bRemote'; r.className = 'hb wk'; r.textContent = 'تشغيل عن بعد'; wu.appendChild(r); }
+    const tap = SIM.tap;
+    tap('mMode', () => { const k = Object.keys(this.MODES), i = (k.indexOf(this.mode) + 1) % k.length; this.setMode(k[i]); });
+    tap('mPlate', () => this.platePanel()); tap('mMech', () => this.callMechanic()); tap('mDrv', () => this.drvPanel());
+    tap('bLock', () => this.toggleLock()); tap('bRemote', () => this.remoteStart());
+  },
+  setMode(k) { this.mode = k; SAVE.settings.driveMode = k; persist(); const v = Game.veh; if (v) v.modeP = this.MODES[k].p; $('mMode').classList.toggle('on2', k === 'sport'); UI.toast('وضع القيادة: ' + this.MODES[k].n, 1400); },
+  thrMap(t) { const M = this.MODES[this.mode] || this.MODES.comfort; return t <= 0 ? 0 : Math.pow(t, M.curve); },
+  steerSens(st) { const k = SAVE.settings.steerSens || 1; return clamp(st * k, -1, 1); },
+  start(ev) {
+    const v = Game.veh; this.mode = SAVE.settings.driveMode || 'comfort'; v.modeP = this.MODES[this.mode].p; $('mMode').classList.toggle('on2', this.mode === 'sport');
+    this.locked = false; this.alarmT = 0; this.t0100 = null; this.topRun = 0; this.mech && this.mech.obj.removeFromParent(); this.mech = null;
+    const st = v.st; if (st) st.tires.forEach(t => { if (t.psi === undefined) t.psi = 32; });
+    this.applyPlate(); this.buildPark(); this.park = this.park && this.park.obj ? Object.assign(this.park, { inside: false, t: 0 }) : this.park;
+    $('parkBox').classList.remove('on'); $('sensBox').classList.remove('on'); $('rearOv').classList.remove('on');
+  },
+  // ---------------- per frame ----------------
+  update(dt) {
+    const v = Game.veh; if (!v || !v.st) return;
+    const kmh = v.speed * 3.6, R = SAVE.records || (SAVE.records = {}), rec = R[SAVE.car] || (R[SAVE.car] = { t0100: 0, top: 0 });
+    // 0-100 timer: starts from a stop, ends at 100 km/h
+    if (kmh < 1 && !SIM.walking) this.t0100 = { t: 0, armed: true };
+    else if (this.t0100 && this.t0100.armed) { this.t0100.t += dt; if (kmh >= 100) { const t = this.t0100.t; this.t0100.armed = false; this.last0100 = t; if (!rec.t0100 || t < rec.t0100) { rec.t0100 = t; persist(); UI.toast('رقم قياسي ٠-١٠٠: ' + t.toFixed(2) + ' ث', 2600); } else UI.toast('٠-١٠٠: ' + t.toFixed(2) + ' ث', 1800); } if (this.t0100.t > 40) this.t0100.armed = false; }
+    if (kmh > rec.top + .5) { rec.top = kmh; this._topDirty = true; } if (this._topDirty && kmh < rec.top - 5) { this._topDirty = false; persist(); }
+    // boost gauge (turbo spools with rpm & throttle, supercharger is instant)
+    const rpm = v.rpm, thr = v.thrE !== undefined ? v.thrE : Game.input.thr;
+    const tb = (v.turbo || 0) * clamp((rpm - 1800) / 1800, 0, 1) * thr, sb = (v.scBoost || 0) * clamp(rpm / 3000, .35, 1) * thr;
+    this.boost = (this.boost || 0) + (tb + sb - (this.boost || 0)) * Math.min(1, dt * ((v.turbo || 0) > 0 && !sb ? 2.5 : 8));
+    const pb = $('perfBox'); if (this._pbT === undefined || (this._pbT += dt) > .1) { this._pbT = 0;
+      const bar = Math.round(clamp(this.boost / 0.75, 0, 1) * 100), hasB = (v.turbo || 0) + (v.scBoost || 0) > 0;
+      pb.innerHTML = `<span class="m">${this.MODES[this.mode].n}</span>${hasB ? `<span class="bst"><i style="width:${bar}%"></i><em>بوست ${(this.boost * 14.5).toFixed(1)}</em></span>` : ''}<span>٠-١٠٠ ${this.t0100 && this.t0100.armed && this.t0100.t > 0 ? this.t0100.t.toFixed(1) : (this.last0100 ? this.last0100.toFixed(2) : '—')}</span><span>الأعلى ${Math.round(rec.top)}</span>`; }
+    this.tyres(dt, v); this.sensors(dt, v); this.updMech(dt, v); this.updPark(dt, v); this.updAlarm(dt);
+  },
+  // ---------------- tyre pressure ----------------
+  tyres(dt, v) {
+    const T = v.st.tires; let low = -1;
+    T.forEach((t, i) => { if (t.psi === undefined) t.psi = 32; if (t.flat) t.psi = 0; else { t.psi -= dt * (0.0006 + t.wear * 0.004); if (t.psi < 26) low = i; } });
+    if (low >= 0 && !this._psiWarned) { this._psiWarned = true; UI.toast('تنبيه: ضغط الكفر ' + ['الأمامي اليسار', 'الأمامي اليمين', 'الخلفي اليسار', 'الخلفي اليمين'][low] + ' ناقص · عبّه من محطة البنزين', 3500); SND.beep(); }
+    if (low < 0) this._psiWarned = false;
+  },
+  airPanel() {
+    const P = $('sidePanel'), v = Game.veh; P.dataset.k = 'air'; P.classList.add('on');
+    const names = ['أمامي يسار', 'أمامي يمين', 'خلفي يسار', 'خلفي يمين'];
+    const draw = () => { P.innerHTML = `<b>هواء الكفرات · المطلوب ٣٢</b>` + v.st.tires.map((t, i) => `<span class="opt ${t.psi < 26 ? 'warn' : ''}">${names[i]}: ${t.flat ? 'بنشر' : Math.round(t.psi) + ' رطل'} <i data-a="${i}" data-d="-2">−</i><i data-a="${i}" data-d="2">+</i></span>`).join('') + `<span class="opt" data-all="1">عبّ الكل ٣٢ · مجاناً</span>`;
+      P.querySelectorAll('[data-a]').forEach(b => SIM.tap2(b, () => { const t = v.st.tires[+b.dataset.a]; if (t.flat) return UI.toast('الكفر بنشر: بدّله أول', 1500); t.psi = clamp(t.psi + +b.dataset.d, 10, 44); SND.whoosh && SND.whoosh(); draw(); }));
+      const a = P.querySelector('[data-all]'); SIM.tap2(a, () => { v.st.tires.forEach(t => { if (!t.flat) t.psi = 32; }); SND.whoosh && SND.whoosh(); persist(); draw(); }); };
+    draw();
+  },
+  // ---------------- Saudi number plate ----------------
+  plateCfg() { const c = carCfg(SAVE.car); if (!c.plate) c.plate = { n: '1234', l: [1, 2, 0] }; return c.plate; },
+  plateTex(p) {
+    const cv = document.createElement('canvas'); cv.width = 1040; cv.height = 220; const x = cv.getContext('2d');
+    x.fillStyle = '#f6f6f2'; x.fillRect(0, 0, 1040, 220); x.strokeStyle = '#111'; x.lineWidth = 10; x.strokeRect(5, 5, 1030, 210);
+    // right strip: kingdom mark
+    x.fillStyle = '#f6f6f2'; x.fillRect(900, 10, 130, 200); x.fillStyle = '#0a7a3a'; x.font = '900 34px sans-serif'; x.textAlign = 'center'; x.fillText('السعودية', 965, 70);
+    x.fillStyle = '#111'; x.font = '900 40px sans-serif'; x.fillText('KSA', 965, 190); x.beginPath(); x.arc(965, 120, 26, 0, 7); x.strokeStyle = '#0a7a3a'; x.lineWidth = 6; x.stroke();
+    x.fillStyle = '#111'; x.fillRect(895, 10, 6, 200); x.fillRect(450, 10, 6, 200); x.fillRect(10, 108, 885, 5);
+    const ar = p.n.split('').map(d => AR_D[+d]).join(' '), L = p.l.map(i => PLATE_L[i]);
+    x.font = '900 86px sans-serif'; x.fillText(ar, 230, 92); x.fillText(L.map(l => l[0]).join(' '), 675, 92);
+    x.font = '900 86px sans-serif'; x.fillText(p.n.split('').join(' '), 230, 200); x.fillText(L.map(l => l[1]).reverse().join(' '), 675, 200);
+    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t;
+  },
+  applyPlate() {
+    const cv = Game.carView; if (!cv) return; const p = this.plateCfg(), tex = this.plateTex(p);
+    (cv._plates || []).forEach(m => { m.removeFromParent(); m.material.dispose(); }); cv._plates = [];
+    if (cv.mats.licenseplate) { const m = cv.mats.licenseplate; m.map = tex; m.color.set(0xffffff); m.needsUpdate = true; return; }
+    // no plate in the model: find the front / rear faces with a ray and mount one there
+    const ms = []; cv.bodyHolder.traverse(o => { if (o.isMesh && !(o.material && o.material.transparent)) ms.push(o); });
+    cv.root.updateMatrixWorld(true); const W = cv.bodyHolder.matrixWorld, inv = W.clone().invert(), B = cv.box, g0 = -cv.groundOff;
+    for (const end of [1, -1]) {
+      let best = null; const rc = new THREE.Raycaster();
+      for (let h = .42; h <= .9; h += .06) { const o = new THREE.Vector3(0, g0 + h, end > 0 ? B.f + 2 : B.r - 2).applyMatrix4(W), d = new THREE.Vector3(0, 0, -end).transformDirection(W);
+        rc.set(o, d); rc.far = 4; const hit = rc.intersectObjects(ms, false)[0]; if (!hit) continue; const lp = hit.point.clone().applyMatrix4(inv);
+        if (!best || (end > 0 ? lp.z > best.z : lp.z < best.z) - .04 > 0 || (Math.abs(lp.z - best.z) < .04 && Math.abs(h - .62) < Math.abs(best.h - .62))) best = { z: lp.z, y: lp.y, h }; }
+      if (!best) continue;
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(.52, .11), new THREE.MeshStandardMaterial({ map: tex, roughness: .45, metalness: .1, polygonOffset: true, polygonOffsetFactor: -2 }));
+      m.position.set(0, best.y, best.z + end * .012); if (end < 0) m.rotation.y = Math.PI; cv.bodyHolder.add(m); cv._plates.push(m);
+    }
+  },
+  platePanel() {
+    const P = $('sidePanel'); if (P.classList.contains('on') && P.dataset.k === 'plate') { P.classList.remove('on'); return; } P.dataset.k = 'plate'; P.classList.add('on');
+    const draw = () => { const p = this.plateCfg();
+      P.innerHTML = `<b>لوحة سعودية</b><span class="opt">الأرقام: ${p.n.split('').map((d, i) => `<i data-n="${i}">${d}</i>`).join('')}</span><span class="opt">الحروف: ${p.l.map((l, i) => `<i data-l="${i}">${PLATE_L[l][0]}</i>`).join('')}</span><span class="opt" data-rnd="1">لوحة عشوائية</span><span class="opt" data-vip="1">لوحة مميزة (تكرار) · CR 25,000</span><small>اضغط على أي رقم أو حرف يتغيّر</small>`;
+      P.querySelectorAll('[data-n]').forEach(b => SIM.tap2(b, () => { const a = p.n.split(''); a[+b.dataset.n] = String((+a[+b.dataset.n] + 1) % 10); p.n = a.join(''); persist(); this.applyPlate(); draw(); }));
+      P.querySelectorAll('[data-l]').forEach(b => SIM.tap2(b, () => { p.l[+b.dataset.l] = (p.l[+b.dataset.l] + 1) % PLATE_L.length; persist(); this.applyPlate(); draw(); }));
+      SIM.tap2(P.querySelector('[data-rnd]'), () => { p.n = String(1000 + Math.floor(Math.random() * 9000)); p.l = [0, 1, 2].map(() => Math.floor(Math.random() * PLATE_L.length)); persist(); this.applyPlate(); draw(); });
+      SIM.tap2(P.querySelector('[data-vip]'), () => { if (SAVE.cash < 25000) return UI.toast('الرصيد ما يكفي', 1500); SAVE.cash -= 25000; const d = String(1 + Math.floor(Math.random() * 9)), l = Math.floor(Math.random() * PLATE_L.length); p.n = d.repeat(4); p.l = [l, l, l]; persist(); UI.refreshTop && UI.refreshTop(); this.applyPlate(); draw(); UI.toast('مبروك اللوحة المميزة', 1800); });
+    };
+    draw();
+  },
+  // ---------------- key: lock / alarm / remote start ----------------
+  toggleLock() {
+    const cv = Game.carView; this.locked = !this.locked; SND.beep(); setTimeout(() => SND.beep(), this.locked ? 0 : 160);
+    cv.state.haz = true; setTimeout(() => { if (!this.alarmT) cv.state.haz = false; }, this.locked ? 700 : 1300);
+    $('bLock').textContent = this.locked ? 'فتح' : 'قفل'; UI.toast(this.locked ? 'السيارة مقفلة · الإنذار شغال' : 'السيارة مفتوحة', 1500);
+  },
+  remoteStart() { const v = Game.veh; if (v.engineOn) { v.stopEngine(); UI.toast('طفّيت المكينة عن بعد', 1400); return; } SND.beep(); const r = v.startEngine(); if (r === 'ok') { SND.starter && SND.starter(true); UI.toast('شغّلت المكينة عن بعد', 1400); } else UI.toast(r === 'bat' ? 'البطارية فاضية' : r === 'fuel' ? 'ما فيه بنزين' : 'ما فيه زيت', 1800); },
+  triggerAlarm() { if (this.alarmT > 0) return; this.alarmT = 12; UI.toast('🚨 إنذار السيارة!', 2000); },
+  updAlarm(dt) {
+    const cv = Game.carView; if (!cv) return;
+    if (this.alarmT > 0) { this.alarmT -= dt; const on = Math.floor(this.alarmT * 2.5) % 2 === 0; cv.state.haz = true; cv.state.horn = on; if (this.alarmT <= 0) { this.alarmT = 0; cv.state.haz = false; cv.state.horn = false; } }
+    $('bLock') && ($('bLock').style.display = SIM.walking ? '' : 'none'); $('bRemote') && ($('bRemote').style.display = SIM.walking ? '' : 'none');
+    // walking into a locked car sets it off
+    if (SIM.walking && this.locked && SIM.ped) { const v = Game.veh, B = cv.box, c = Math.cos(v.yaw), s = Math.sin(v.yaw), rx = SIM.ped.position.x - v.px, rz = SIM.ped.position.z - v.pz, lx = rx * c - rz * s, lz = rx * s + rz * c;
+      if (Math.abs(lx) < B.hw + .45 && lz < B.f - cv.cgZ + .45 && lz > B.r - cv.cgZ - .45) this.triggerAlarm(); }
+  },
+  // ---------------- parking sensors + reversing camera ----------------
+  sensors(dt, v) {
+    const on = v.gear < 0 && v.speed < 4 && !SIM.walking, box = $('sensBox');
+    if (!on) { box.classList.remove('on'); $('rearOv').classList.remove('on'); this.rearCam = false; return; }
+    const B = v.box, c = Math.cos(v.yaw), s = Math.sin(v.yaw), segs = (Game.world && Game.world.segs) || []; let dmin = 9;
+    const pts = [-B.hw * .8, 0, B.hw * .8].map(lx => [v.px + lx * c + B.r * s, v.pz - lx * s + B.r * c]);
+    const obst = segs.slice(); if (this.mech && this.mech.obj) obst.push({ x1: this.mech.x - 1, z1: this.mech.z, x2: this.mech.x + 1, z2: this.mech.z });
+    for (const sg of obst) { if (!sg.th && sg.gate) continue; const dx = sg.x2 - sg.x1, dz = sg.z2 - sg.z1, L2 = dx * dx + dz * dz || 1;
+      for (const [px, pz] of pts) { const t = clamp(((px - sg.x1) * dx + (pz - sg.z1) * dz) / L2, 0, 1); const d = Math.hypot(px - sg.x1 - dx * t, pz - sg.z1 - dz * t); if (d < dmin) dmin = d; } }
+    box.classList.add('on'); const lvl = dmin < .4 ? 3 : dmin < 1 ? 2 : dmin < 2 ? 1 : 0;
+    box.innerHTML = `<b>حساسات</b><span class="sb l${lvl}">${'▮'.repeat(lvl + 1)}</span><em>${dmin < 9 ? dmin.toFixed(1) + ' م' : 'سالك'}</em>`;
+    const iv = lvl === 3 ? .09 : lvl === 2 ? .22 : lvl === 1 ? .45 : 0; this._bp = (this._bp || 0) + dt; if (iv && this._bp > iv) { this._bp = 0; SND.beep(); }
+    this.rearCam = SAVE.settings.rearCam !== false; $('rearOv').classList.toggle('on', this.rearCam);
+  },
+  rearCamera(dt) {
+    const v = Game.veh, cv = Game.carView, cam = Game.camera, B = cv.box, s = Math.sin(v.yaw), c = Math.cos(v.yaw);
+    const y = (v.py || 0) + 1.05, z = B.r - cv.cgZ + .05; cam.position.set(v.px + s * z, y, v.pz + c * z); cam.lookAt(v.px + s * (z - 6), y - 1.1, v.pz + c * (z - 6));
+    if (cam.fov !== 75) { cam.fov = 75; cam.updateProjectionMatrix(); } Game.camPos = null;
+  },
+  drvPanel() {
+    const P = $('sidePanel'); if (P.classList.contains('on') && P.dataset.k === 'drv') { P.classList.remove('on'); return; } P.dataset.k = 'drv'; P.classList.add('on');
+    const S = SAVE.settings, draw = () => { const k = S.steerSens || 1;
+      P.innerHTML = `<b>القيادة</b><span class="opt">حساسية الدركسون: ${Math.round(k * 100)}% <i data-s="-.1">−</i><i data-s=".1">+</i></span>` + Object.entries(this.MODES).map(([id, m]) => `<span class="opt ${this.mode === id ? 'sel' : ''}" data-m="${id}">${m.n}</span>`).join('') + `<span class="opt ${S.rearCam !== false ? 'sel' : ''}" data-rc="1">الكاميرا الخلفية مع الرجوع</span>`;
+      P.querySelectorAll('[data-s]').forEach(b => SIM.tap2(b, () => { S.steerSens = clamp(Math.round(((S.steerSens || 1) + +b.dataset.s) * 10) / 10, .5, 1.5); persist(); draw(); }));
+      P.querySelectorAll('[data-m]').forEach(b => SIM.tap2(b, () => { this.setMode(b.dataset.m); draw(); }));
+      SIM.tap2(P.querySelector('[data-rc]'), () => { S.rearCam = S.rearCam === false; persist(); draw(); }); };
+    draw();
+  },
+  // ---------------- mobile mechanic: a service van drives to you ----------------
+  callMechanic() {
+    const v = Game.veh; if (this.mech) return UI.toast('الصيانة جاية في الطريق', 1500); if (SAVE.cash < 100) return UI.toast('تحتاج CR 100 لرسوم الطلب', 1600);
+    SAVE.cash -= 100; persist(); UI.refreshTop && UI.refreshTop();
+    const g = new THREE.Group(), body = new THREE.Mesh(new THREE.BoxGeometry(2, 2.1, 5), new THREE.MeshStandardMaterial({ color: 0xf2f2f2, roughness: .5 })); body.position.y = 1.35; g.add(body);
+    const str = new THREE.Mesh(new THREE.BoxGeometry(2.02, .35, 5.02), new THREE.MeshStandardMaterial({ color: 0xff7a00 })); str.position.y = 1.2; g.add(str);
+    const cab = new THREE.Mesh(new THREE.BoxGeometry(1.9, .8, 1.2), new THREE.MeshStandardMaterial({ color: 0x223, roughness: .1, metalness: .6 })); cab.position.set(0, 2, 2.0); g.add(cab);
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(1.2, .15, .3), new THREE.MeshBasicMaterial({ color: 0xffaa00 })); bar.position.set(0, 2.5, 1.6); g.add(bar); this._bar = bar;
+    for (const [x, z] of [[-.95, 1.6], [.95, 1.6], [-.95, -1.6], [.95, -1.6]]) { const w = new THREE.Mesh(new THREE.CylinderGeometry(.4, .4, .3, 16), new THREE.MeshStandardMaterial({ color: 0x111 })); w.rotation.z = Math.PI / 2; w.position.set(x, .4, z); g.add(w); }
+    const a = v.yaw + Math.PI, sx = v.px + Math.sin(a) * 160, sz = v.pz + Math.cos(a) * 160; g.position.set(sx, v.py || 0, sz); Game.world.scene.add(g);
+    this.mech = { obj: g, x: sx, z: sz, arrived: false }; UI.toast('طلبت سيارة الصيانة · تجيك خلال ثواني', 2200);
+  },
+  updMech(dt, v) {
+    const M = this.mech; if (!M) return; if (this._bar) this._bar.material.color.setHex(Math.floor(performance.now() / 250) % 2 ? 0xffaa00 : 0x552200);
+    if (!M.arrived) { const s = Math.sin(v.yaw), c = Math.cos(v.yaw), tx = v.px + c * 4.2 + s * 1.5, tz = v.pz - s * 4.2 + c * 1.5;   // parks beside you
+      const dx = tx - M.x, dz = tz - M.z, d = Math.hypot(dx, dz); const sp = Math.min(22, d * 1.2 + 2);
+      if (d < .6) { M.arrived = true; this.mechPanel(); SND.beep(); } else { M.x += dx / d * sp * dt; M.z += dz / d * sp * dt; M.obj.rotation.y = Math.atan2(dx, dz); }
+      M.obj.position.set(M.x, (Game.world.heightAt ? Game.world.heightAt(M.x, M.z, (v.py || 0) + 2) : 0), M.z); }
+    else if (Math.hypot(v.px - M.x, v.pz - M.z) > 40) { M.obj.removeFromParent(); this.mech = null; }
+  },
+  mechPanel() {
+    const P = $('sidePanel'), v = Game.veh, st = v.st; P.dataset.k = 'mech'; P.classList.add('on');
+    const items = [
+      ['tire', 'تبديل الكفر المبنشر', 350, () => st.tires.some(t => t.flat), () => st.tires.forEach(t => { if (t.flat) { t.flat = false; t.hp = 100; t.wear = 0; t.psi = 32; } })],
+      ['bat', 'شحن البطارية', 200, () => st.bat < 95, () => { st.bat = 100; }],
+      ['fuel', 'بنزين ١٥ لتر', 70, () => st.fuel < st.tank - 1, () => { st.fuel = Math.min(st.tank, st.fuel + 15); }],
+      ['oil', 'تعبئة زيت', 150, () => st.oil < 95, () => { st.oil = 100; }],
+      ['cool', 'تبريد المحرك وماء الرديتر', 120, () => st.eT > 100, () => { st.eT = 85; }],
+      ['body', 'إصلاح الصدمات', Math.round(80 + st.dmg * 40), () => st.dmg > 1, () => { st.dmg = 0; Game.carView.repairBody && Game.carView.repairBody(); }],
+      ['air', 'ضبط هواء الكفرات', 40, () => st.tires.some(t => !t.flat && Math.abs(t.psi - 32) > 2), () => st.tires.forEach(t => { if (!t.flat) t.psi = 32; })],
+    ];
+    const draw = () => { P.innerHTML = `<b>🔧 الصيانة المتنقلة</b>` + items.map(([k, n, p, need]) => `<span class="opt ${need() ? '' : 'dim'}" data-k="${k}">${n} · ${need() ? 'CR ' + fmt(p) : 'سليم'}</span>`).join('') + `<span class="opt" data-k="bye">خلاص، شكراً</span>`;
+      P.querySelectorAll('[data-k]').forEach(b => SIM.tap2(b, () => { if (b.dataset.k === 'bye') { P.classList.remove('on'); if (this.mech) { this.mech.obj.removeFromParent(); this.mech = null; } return; }
+        const it = items.find(i => i[0] === b.dataset.k); if (!it[3]()) return UI.toast('ما يحتاج', 1000); if (SAVE.cash < it[2]) return UI.toast('الرصيد ما يكفي', 1500);
+        SAVE.cash -= it[2]; it[4](); persist(); UI.refreshTop && UI.refreshTop(); SND.beep(); UI.toast('تم: ' + it[1], 1400); draw(); })); };
+    draw();
+  },
+  // ---------------- smart car park (highway map lot): barrier gate, timer, fee ----------------
+  buildPark() {
+    const W = Game.world; if (!W || W.mapId !== 'highway' || typeof LOT === 'undefined') { this.park = null; return; }
+    if (this.park && this.park.world === W) return;
+    const x = LOT.x0 - 3, g = new THREE.Group(); g.position.set(x, 0, 0);
+    const post = new THREE.Mesh(new THREE.BoxGeometry(.5, 1.2, .5), new THREE.MeshStandardMaterial({ color: 0x333 })); post.position.set(0, .6, -8.6); g.add(post);
+    const piv = new THREE.Group(); piv.position.set(0, 1.05, -8.6); g.add(piv);
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(.12, .12, 16.6), new THREE.MeshStandardMaterial({ color: 0xffffff })); arm.position.z = 8.3; piv.add(arm);
+    for (let i = 0; i < 6; i++) { const r = new THREE.Mesh(new THREE.BoxGeometry(.13, .13, 1.4), new THREE.MeshStandardMaterial({ color: 0xd21f1f })); r.position.z = 1.2 + i * 2.8; piv.add(r); }
+    const kiosk = new THREE.Mesh(new THREE.BoxGeometry(1.4, 2.4, 1.4), new THREE.MeshStandardMaterial({ color: 0x1d5fbf })); kiosk.position.set(0, 1.2, -10.2); g.add(kiosk);
+    const sign = new THREE.Mesh(new THREE.PlaneGeometry(4, 1), new THREE.MeshBasicMaterial({ map: SIM.label('🅿️ موقف ذكي', '#1d5fbf'), side: THREE.DoubleSide })); sign.position.set(0, 3.4, -10.2); sign.rotation.y = Math.PI / 2; g.add(sign);
+    W.scene.add(g); const seg = { x1: x, z1: -8.4, x2: x, z2: 8.4, th: .3, gate: true }; W.segs.push(seg);
+    this.park = { world: W, obj: g, piv, seg, x, open: 0, inside: false, t: 0, side: 0 };
+  },
+  updPark(dt, v) {
+    const K = this.park; if (!K) return; const near = Math.abs(v.px - K.x) < 12 && Math.abs(v.pz) < 9;
+    const want = near && !SIM.walking ? 1 : 0; K.open += clamp(want - K.open, -dt * 1.2, dt * 1.2); K.piv.rotation.x = -K.open * 1.45; K.seg.th = K.open > .8 ? 0 : .3;
+    if (want && K.open < .05) SND.beep();
+    const side = v.px > K.x ? 1 : -1; if (!K.side) K.side = side;
+    if (side !== K.side) { K.side = side;
+      if (side > 0) { K.inside = true; K.t = 0; UI.toast('دخلت الموقف · CR 5 للدقيقة', 2000); }
+      else if (K.inside) { K.inside = false; const fee = Math.max(5, Math.ceil(K.t / 60) * 5); SAVE.cash = Math.max(0, SAVE.cash - fee); persist(); UI.refreshTop && UI.refreshTop(); UI.toast('رسوم الموقف: CR ' + fee + ' · المدة ' + this.mmss(K.t), 2600); } }
+    if (K.inside) K.t += dt;
+    const pb = $('parkBox'); pb.classList.toggle('on', K.inside); if (K.inside) pb.textContent = '🅿️ ' + this.mmss(K.t) + ' · CR ' + Math.max(5, Math.ceil(K.t / 60) * 5);
+  },
+  mmss(t) { const m = Math.floor(t / 60), s = Math.floor(t % 60); return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); },
+};
+
 // ===== game core =====
 const $ = id => document.getElementById(id);
 const PRESETS = {
@@ -11764,6 +12096,9 @@ const Game = {
   },
   applyQuality(name, first) {
     this.qName = name; this.q = PRESETS[name] || PRESETS.high;
+    // iPhone / iPad: Safari closes the page if it uses too much memory, so the heaviest settings are capped there
+    const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (ios) this.q = Object.assign({}, this.q, { msaa: 0, tex: Math.min(this.q.tex, 2048), shadow: Math.min(this.q.shadow, 2), smoke: Math.min(this.q.smoke, 600), ios: true });
     this.renderer.shadowMap.enabled = this.q.shadow > 0;
     this.resize(); Post.setup(this.renderer, this.q); Post.resize();
     $('vig').classList.toggle('on', this.q.fx);
@@ -11774,7 +12109,8 @@ const Game = {
   },
   resize() {
     const r = this.renderer; if (!r) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 3) * (this.q ? this.q.res : 1);
+    let dpr = Math.min(window.devicePixelRatio || 1, 3) * (this.q ? this.q.res : 1);
+    if (this.q && this.q.ios) dpr = Math.min(dpr, { ultra: 2, high: 1.7, med: 1.4, low: 1.1 }[this.qName] || 1.7);
     r.setPixelRatio(Math.max(0.5, dpr)); r.setSize(window.innerWidth, window.innerHeight, false);
     this.camera.aspect = window.innerWidth / window.innerHeight; this.camera.updateProjectionMatrix();
     Post.resize();
@@ -11839,6 +12175,7 @@ const Game = {
   },
   // ---------------- drive session ----------------
   startDrive(ev) {
+    try { localStorage.setItem('rpmx_inDrive', String(Date.now())); } catch (e) { }
     const id = SAVE.car;
     this.ev = ev;
     const mp = ev.map || 'highway';
@@ -11847,6 +12184,8 @@ const Game = {
     if (this.carView) this.carView.root.removeFromParent();
     const { view, veh } = this.makeCar(id, CAR_CACHE[id], true);
     this.carView = view; this.veh = veh;
+    // a fresh drive starts with a cold engine and gearbox
+    if (veh.st) { veh.st.eT = Math.min(veh.st.eT, 30); veh.st.gT = Math.min(veh.st.gT, 30); }
     this.world.scene.add(view.root);
     this.setupFx();
     this.spawn();
@@ -11868,6 +12207,7 @@ const Game = {
     this.smoke && this.smoke.clear(); this.skids && this.skids.clear();
   },
   endDrive(toMenu) {
+    try { localStorage.removeItem('rpmx_inDrive'); } catch (e) { }
     { const ms = SAVE.mapStats && SAVE.mapStats[this.world.mapId || 'highway']; if (ms && this.score) { ms.top = Math.max(ms.top, this.score.topKmh || 0); ms.dist += this.dist || 0; ms.time += this.runT || 0; this.dist = 0; this.runT = 0; } }
     if (SIM.walking) { SIM.walking = false; $('hud').classList.remove('walking'); if (SIM.ped) SIM.ped.visible = false; } SIM.endJob && SIM.endJob(); persist();
     this.mode = 'menu'; SND.silence(); if (typeof Net !== 'undefined' && Net.room) Net.leave();
@@ -11958,7 +12298,8 @@ const Game = {
     I.hb = hb ? 1 : 0;
     st = SIM.steerInput(st);
     if (SIM.walking) return { thr: 0, brk: 0, hb: 1, steer: 0, assist: true, clutch: 0 };
-    return { thr: I.thr, brk: I.brk, hb: I.hb, steer: st, assist: SAVE.settings.steerAssist, nitro: I.nitro || K.KeyN || K.ShiftLeft, clutch: I.clutch || 0 };
+    if (typeof SIM2 !== 'undefined') { st = SIM2.steerSens(st); }
+    return { thr: typeof SIM2 !== 'undefined' ? SIM2.thrMap(I.thr) : I.thr, brk: I.brk, hb: I.hb, steer: st, assist: SAVE.settings.steerAssist, nitro: I.nitro || K.KeyN || K.ShiftLeft, clutch: I.clutch || 0 };
   },
   // ---------------- scoring ----------------
   updateScore(dt) {
@@ -11995,6 +12336,7 @@ const Game = {
   updateCamera(dt) {
     const v = this.veh, cam = this.camera, cv = this.carView;
     const mode = CAMS[this.camMode];
+    if (cv && cv.setInside) cv.setInside(mode === 'interior');
     const sy = Math.sin(v.yaw), cy = Math.cos(v.yaw);
     // follow heading blends toward velocity direction when sliding (drift cam)
     let hd = v.yaw;
@@ -12007,7 +12349,9 @@ const Game = {
     const tgt = new THREE.Vector3(v.px, 1.1 + cy0, v.pz);
     let want, look, fov = 58;
     if (mode === 'chase' || mode === 'far' || mode === 'high' || mode === 'top') {
-      const [d, h, lh] = { chase: [6.8, 2.5, 1.3], far: [11.5, 3.6, 1.2], high: [13, 8.5, 0.5], top: [6, 26, 0] }[mode];
+      let [d, h, lh] = { chase: [6.8, 2.5, 1.3], far: [11.5, 3.6, 1.2], high: [13, 8.5, 0.5], top: [6, 26, 0] }[mode];
+      // closer when slow, a bit further back when fast (smoothed so it never jumps)
+      if (mode === 'chase' || mode === 'far') { const kd = 0.9 + Math.min(0.28, v.speed / 120); this._camD = this._camD === undefined ? kd : this._camD + (kd - this._camD) * Math.min(1, dt * 1.5); d *= this._camD; h *= 0.95 + this._camD * 0.05; }
       want = new THREE.Vector3(v.px - fx * d * Math.cos(O.pitch * .6), h + cy0 + O.pitch * d * .8, v.pz - fz * d * Math.cos(O.pitch * .6));
       look = new THREE.Vector3(v.px + fx * 2.5, lh + cy0, v.pz + fz * 2.5);
       if (this.world.heightAt) { const gh = this.world.heightAt(want.x, want.z, cy0 + 2) + 0.6; if (want.y < gh) want.y = gh; }
@@ -12056,8 +12400,9 @@ const Game = {
         for (let i = 0; i < 4; i++) {
           const w = v.wheels[i]; const sv = w.slipV;
           const dust = w.surf === 'sand';
-          if ((sv > 3.2 && w.Fz > 500) || (dust && v.speed > 4)) {
-            const em = dust ? Math.min(2, v.speed / 10 + sv / 8) : Math.min(2.2, (sv - 3) / 4);
+          const th = i < 2 ? 6.5 : 3.2;   // tyre smoke mostly from the rear wheels; fronts only when they really slide
+          if ((sv > th && w.Fz > 500) || (dust && v.speed > 4)) {
+            const em = dust ? Math.min(2, v.speed / 10 + sv / 8) : Math.min(2.2, (sv - th + .2) / 4) * (i < 2 ? .5 : 1);
             for (let k = 0; k < em * dtR * 60; k++) if (Math.random() < .7) this.smoke.emit(w.gx, .25 + (v.py || 0), w.gz, v.vx, v.vz, Math.min(1, sv / 14), dust);
           }
           if (sv > 2.6 && !dust && w.Fz > 300 && v.py <= (this.world.heightAt ? this.world.heightAt(w.gx, w.gz, v.py) + .05 : 1)) this.skids.add(i, w.gx, w.gz, 0, 0, Math.min(1, (sv - 2.6) / 7) * .7, v.py || 0); else this.skids.cut(i);
@@ -12067,7 +12412,7 @@ const Game = {
       }
       this.smoke.update(this.paused ? 0 : dtR, r.domElement.height);
       cv.update(v, this.t);
-      if (SIM.walking) { SIM.walkCamera(dtR); if (this.world.update) this.world.update(this.camera); } else this.updateCamera(dtR);
+      if (SIM.walking) { SIM.walkCamera(dtR); if (this.world.update) this.world.update(this.camera); } else if (SIM2.rearCam) { SIM2.rearCamera(dtR); if (this.world.update) this.world.update(this.camera); } else this.updateCamera(dtR);
       UI.hud(v); { const nb = $('bNitro'); nb.style.display = v.nitroCap > 0 ? 'flex' : 'none'; if (v.nitroCap > 0) { $('nBar').style.width = (v.nitro / v.nitroCap * 100) + '%'; nb.classList.toggle('on', v.nitroOn); } }
       SND.update(v, cv.state, cv.blinkOn, this.paused || this.tutPause);
       if (typeof Net !== 'undefined') Net.tick(dtR, v, cv);
@@ -12205,7 +12550,28 @@ const UI = {
     $('eye').onclick = () => { const p = $('aPass'); p.type = p.type === 'password' ? 'text' : 'password'; };
     const cb = $('stayCb'); cb.classList.toggle('off', !SAVE.stayLogged); cb.onclick = () => { SAVE.stayLogged = !SAVE.stayLogged; cb.classList.toggle('off', !SAVE.stayLogged); };
     $('forgotBtn').onclick = () => this.toast(t('forgotMsg'), 4200);
-    $('gBtn').onclick = () => this.toast(t('googleSoon'), 3200);
+    // Google sign-in (works on the game's own website once a Google client ID is set in GOOGLE_ID)
+    $('gBtn').onclick = () => {
+      if (!GOOGLE_ID) return this.toast(t('googleSoon'), 3200);
+      const go = () => { try {
+        google.accounts.id.initialize({ client_id: GOOGLE_ID, callback: r => { try { const b = r.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'); const p = JSON.parse(decodeURIComponent(escape(atob(b))));
+          SAVE.account = { email: String(p.email || '').toLowerCase(), google: true }; if (!SAVE.name && p.given_name) SAVE.name = String(p.given_name).slice(0, 16); persist(); this.closeModal(); this.loadingStep(); } catch (e) { this.toast('تعذر دخول قوقل', 2500); } } });
+        this.modal(`<div class="h1">الدخول بقوقل</div><div class="uline"></div><div id="gsiBtn" style="display:flex;justify-content:center;padding:16px"></div>`, 60);
+        google.accounts.id.renderButton($('gsiBtn'), { theme: 'filled_black', size: 'large', locale: 'ar', text: 'signin_with' }); } catch (e) { this.toast('تعذر دخول قوقل', 2500); } };
+      if (window.google && google.accounts) return go();
+      const sc = document.createElement('script'); sc.src = 'https://accounts.google.com/gsi/client'; sc.async = true; sc.onload = go; sc.onerror = () => this.toast('ما قدرت أوصل لقوقل', 2500); document.head.appendChild(sc);
+    };
+    // Sign in with Apple (works on the game's own website once APPLE_ID / APPLE_REDIRECT are set)
+    $('appleBtn').onclick = () => {
+      if (!APPLE_ID || !APPLE_REDIRECT) return this.toast(t('appleSoon'), 3600);
+      const go = async () => { try {
+        AppleID.auth.init({ clientId: APPLE_ID, scope: 'name email', redirectURI: APPLE_REDIRECT, usePopup: true });
+        const r = await AppleID.auth.signIn(); const b = r.authorization.id_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'); const p = JSON.parse(decodeURIComponent(escape(atob(b))));
+        SAVE.account = { email: String(p.email || p.sub || '').toLowerCase(), apple: true }; const nm = r.user && r.user.name && r.user.name.firstName; if (!SAVE.name && nm) SAVE.name = String(nm).slice(0, 16);
+        persist(); this.loadingStep(); } catch (e) { if (!(e && e.error === 'popup_closed_by_user')) this.toast('تعذر دخول آبل', 2500); } };
+      if (window.AppleID) return go();
+      const sc = document.createElement('script'); sc.src = 'https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/ar_SA/appleid.auth.js'; sc.onload = go; sc.onerror = () => this.toast('ما قدرت أوصل لآبل', 2500); document.head.appendChild(sc);
+    };
     $('guestBtn').onclick = () => { SAVE.account = { email: 'guest', guest: true }; persist(); this.loadingStep(); };
     $('aSubmit').onclick = async () => {
       const em = $('aEmail').value.trim().toLowerCase(), pw = $('aPass').value;
@@ -12540,6 +12906,8 @@ const UI = {
       if (tab === 'a') body = `<div class="mrow"><span style="flex:1">${SAVE.account && !SAVE.account.guest ? SAVE.account.email : t('guest')}</span><button class="btn o sm" id="logout">${t('logout')}</button></div>
         <div class="mrow"><span style="flex:1">${t('ads')}</span><div class="opts"><span class="opt${SAVE.adsConsent ? ' on' : ''}" data-ad="1">${t('allow')}</span><span class="opt${!SAVE.adsConsent ? ' on' : ''}" data-ad="0">${t('noThanks')}</span></div></div>
         <div class="mrow"><span style="flex:1">${tx('فلوس لانهائية', 'Infinite money')}</span><div class="opts"><span class="opt${S.infMoney ? ' on' : ''}" data-im="1">${t('on')}</span><span class="opt${!S.infMoney ? ' on' : ''}" data-im="0">${t('off')}</span></div></div>
+        <div class="mrow"><span style="flex:1">الحفظ: ${typeof CLOUD !== 'undefined' && CLOUD.ref ? 'في حسابك (يبقى لو طلعت)' : 'في جوالك'}</span><button class="btn o sm" id="sCopy">نسخ رمز الحفظ</button><button class="btn o sm" id="sLoad">استرجاع برمز</button></div>
+        <div class="mrow" id="sBox" style="display:none"><textarea id="sCode" style="flex:1;height:5em;font-size:16px;direction:ltr" placeholder="الصق رمز الحفظ هنا"></textarea><button class="btn y sm" id="sGo">استرجاع</button></div>
         <div class="mrow"><span style="flex:1">${t('resetData')}</span><button class="btn o sm" id="wipe">${t('resetData')}</button></div>`;
       if (tab === 'r') body = `<p class="sub">${t('carsCredit')}<br>Chevrolet Tahoe 2025 · Toyota Sequoia<br>three.js (MIT)</p>`;
       return `<div class="h1">${t('settings')}</div><div class="uline"></div><div class="stabs">${tabs.map(([k, l]) => `<span class="opt${tab === k ? ' on' : ''}" data-tb="${k}">${t(l)}</span>`).join('')}</div>${body}`;
@@ -12559,6 +12927,12 @@ const UI = {
       C.querySelectorAll('[data-l]').forEach(e => e.onclick = () => { LANG = e.dataset.l; SAVE.lang = LANG; persist(); this.applyLang(); this.refreshTop(); this.tab(this.curTab || 'play'); C.innerHTML = render(); bind(); });
       C.querySelectorAll('[data-ad]').forEach(e => e.onclick = () => { SAVE.adsConsent = e.dataset.ad === '1'; persist(); C.innerHTML = render(); bind(); });
       const lo = $('logout'); if (lo) lo.onclick = () => { SAVE.account = null; persist(); this.closeModal(); Game.mode = 'boot'; this.authStep(); };
+      const enc = () => btoa(unescape(encodeURIComponent(JSON.stringify(Object.assign({}, SAVE, { chat: [] })))));
+      const sc = $('sCopy'); if (sc) sc.onclick = async () => { const code = enc(); let ok = false; try { await navigator.clipboard.writeText(code); ok = true; } catch (_) { }
+        $('sBox').style.display = 'flex'; $('sCode').value = code; $('sCode').select(); this.toast(ok ? 'نسخت رمز الحفظ · احفظه في الملاحظات' : 'انسخ الرمز اللي ظهر واحفظه في الملاحظات', 3500); };
+      const sl = $('sLoad'); if (sl) sl.onclick = () => { $('sBox').style.display = 'flex'; $('sCode').value = ''; $('sCode').focus(); };
+      const sg = $('sGo'); if (sg) sg.onclick = () => { try { const o = JSON.parse(decodeURIComponent(escape(atob($('sCode').value.trim())))); if (!o || typeof o !== 'object' || !o.cars) throw 0;
+        o.savedAt = Date.now() + 1000; localStorage.setItem(SAVE_KEY, JSON.stringify(o)); SAVE = Object.assign(DEFAULT_SAVE(), o); persist(); this.toast('رجّعت حفظك ✓', 2000); setTimeout(() => location.reload(), 900); } catch (_) { this.toast('الرمز غير صحيح', 2000); } };
       const w = $('wipe'); if (w) w.onclick = () => { if (w.dataset.sure) { try { localStorage.removeItem(SAVE_KEY); } catch (_) { } location.reload(); } else { w.dataset.sure = 1; w.textContent = t('resetQ') + ' ' + t('yes'); w.classList.add('y'); } };
     };
     this.modal(render(), 96); bind();
@@ -13395,6 +13769,10 @@ SCR.open = function (k, opt) {
   try { await cloudInit(); } catch (e) { }
   LANG = SAVE.lang || ((navigator.language || '').toLowerCase().startsWith('ar') ? 'ar' : (LANGS.find(l => (navigator.language || '').toLowerCase().startsWith(l[0])) || ['ar'])[0]);
   try { await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]); } catch (e) { }
+  // last session ended by Safari closing the page mid-drive (out of memory): step the graphics down once
+  try { const cr = localStorage.getItem('rpmx_inDrive'); localStorage.removeItem('rpmx_inDrive');
+    if (cr && SAVE.gfx && SAVE.gfx !== 'low') { const order = ['low', 'med', 'high', 'ultra']; SAVE.gfx = order[Math.max(0, order.indexOf(SAVE.gfx) - 1)]; persist(); setTimeout(() => UI.toast('خففنا الجرافيكس شوي عشان اللعبة ما تقفل على جوالك', 4000), 4000); } } catch (e) { }
+  document.addEventListener('visibilitychange', () => { try { if (document.hidden) localStorage.removeItem('rpmx_inDrive'); else if (Game.mode === 'drive') localStorage.setItem('rpmx_inDrive', '1'); } catch (e) { } });
   Game.init();
   Game.renderer.toneMappingExposure = SAVE.settings.exposure || 1;
   // refresh-rate estimate
